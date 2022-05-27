@@ -12,7 +12,7 @@ $(document).ready(function () {
     version: "1.1.1",
   });
 // dodaje włąsną kompozycje z geoservera WMS
-let kompozycja = L.tileLayer.wms("http://127.0.0.1:8080/geoserver/KOMPOZYCJA_D_R_L_B/wms", {
+let kompozycja = L.tileLayer.wms("http://127.0.0.1:8080/geoserver/prge/wms", {
   layers: "KOMPOZYCJA_D_R_L_B",
   format: "image/png",
   transparent: "true",
