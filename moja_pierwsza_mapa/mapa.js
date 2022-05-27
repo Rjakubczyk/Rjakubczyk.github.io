@@ -20,6 +20,13 @@ $(document).ready(function () {
   L.control.layers(baseMaps).addTo(mymap);
   mymap.addLayer(adresOSM);
 
+  // obsługa warstw
+let overlays = {
+  //"dane z OSM": adresOSM,
+  //"moje dane": mojeDane,
+};
+L.control.layers(baseMaps,overlays).addTo(mymap);
+mymap.addLayer(adresOSM);
   // okodowanie guzika który ma zamykać modal
   $(".button_close_modal").click(() => {
     $(".modalBox_edit").hide();
