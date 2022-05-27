@@ -11,26 +11,22 @@ $(document).ready(function () {
     transparent: "true",
     version: "1.1.1",
   });
-// dodaje włąsną kompozycje z geoservera WMS
-let kompozycja = L.tileLayer.wms("http://127.0.0.1:8080/geoserver/prge/wms", {
-  layers: "KOMPOZYCJA_D_R_L_B",
-  format: "image/png",
-  transparent: "true",
+// DODAJE WŁASNĄ KOMPOZYCJĘ Z GEOSERVERA
+let kompozycja = L.tileLayer.wms(
+  "http://localhost:8080/geoserver/PrGe/wms", {
+  layers:"KOMPOZYCJA_D_R_L_B",
+  format:"image/png",
+  transparent:"true",
   version: "1.1.1",
 });
 
 
-
-
-
-  // obsługa warstw
-  let baseMaps = {
-    "dane z OSM": adresOSM,
-    "moje dane": mojeDane,
-    kompozycja: kompozycja,
-  };
-  L.control.layers(baseMaps).addTo(mymap);
-  mymap.addLayer(adresOSM);
+// obsługa warstw
+let baseMaps = {
+"dane z OSM": adresOSM,
+"moje dane": mojeDane,
+kompozycja: kompozycja,
+};
 
   // obsługa warstw
 let overlays = {
