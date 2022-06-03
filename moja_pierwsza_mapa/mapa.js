@@ -98,10 +98,10 @@ mymap.locate({setView:true, maxZoom:10});
 
   //function nazwaFunckji(argument/parametr){return parametr+2}
   function onLocationFound(e) {
-    let radius = e.accuracy /2; // szerokość wielkosć markera lokalizacji na podstawie geokodowania sieci na której się logujemy/ wilekoś m markera proporcjonalna do lokalizacji
+    let radius = e.accuracy; // szerokość wielkosć markera lokalizacji na podstawie geokodowania sieci na której się logujemy/ wilekoś m markera proporcjonalna do lokalizacji
     L.marker(e.latlng) 
     .addTo(mymap)
-    .bindPopup('Znajdujesz się w promieniu ${radius} metrów od tego punktu')
+    .bindPopup(`Znajdujesz się w promieniu ${radius} metrów od tego punktu`)
     .openPopup();
   L.circle(e.latlng, radius).addTo(mymap);
    }
