@@ -96,16 +96,21 @@ mymap.locate({setView:true, maxZoom:10});
   // return parametr+2
 // }
 
-function onLocationFound(e){
-  let radius = e.accuracy /2;
-  L.marker(e.latlng)
-  .addTo(mymap)
-  .bindPopup(`Znajdujesz się w promieniu ${radius} metrów od tego punktu`)
-  .bindPopup();
+  //function nazwaFunckji(argument/parametr){return parametr+2}
+  function onLocationFound(e) {
+    let radius = e.accuracy /2; // szerokość wielkosć markera lokalizacji na podstawie geokodowania sieci na której się logujemy/ wilekoś m markera proporcjonalna do lokalizacji
+    L.marker(e.latlng) 
+    .addTo(mymap)
+    .bindPopup('Znajdujesz się w promieniu ${radius} metrów od tego punktu')
+    .openPopup();
   L.circle(e.latlng, radius).addTo(mymap);
+   }
+   
+   function onLocationError(e) {
+    alert(e.message);
+  }
 
-}
-function onLocationError(e){
+function onLocationError(e) {
   alert(e.message);
 }
 mymap.on("locationerror", onLocationError);
