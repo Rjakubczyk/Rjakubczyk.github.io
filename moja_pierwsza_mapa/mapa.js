@@ -88,6 +88,28 @@ mymap.addLayer(adresOSM);
     $("#modal_do_wprowadzania_danych").append(`<h2>Dane wprowadzono</h2>`);
   });
 
+  
+// LOKALIZACJA !!!!
+mymap.locate({setView:true, maxZoom:10});
+
+//function nazwaFunkcji(parametr){
+  // return parametr+2
+// }
+
+function onLocationFound(e){
+  let radius = e.accuracy /2;
+  L.marker(e.latlng)
+  .addTo(mymap)
+  .bindPopup(`Znajdujesz się w promieniu ${radius} metrów od tego punktu`)
+  .bindPopup();
+  L.circle(e.latlng, radius).addTo(mymap);
+  function onLocationError(e){
+    alert(e.message);
+  }
+}
+mymap.on("locationerror", onLocationError);
+mymap.on("locationfound", onLocationFound);
+
   let layer_group;
   let filtered = [];
   // generowanie listy wszystkich dat
