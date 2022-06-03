@@ -103,9 +103,10 @@ function onLocationFound(e){
   .bindPopup(`Znajdujesz się w promieniu ${radius} metrów od tego punktu`)
   .bindPopup();
   L.circle(e.latlng, radius).addTo(mymap);
-  function onLocationError(e){
-    alert(e.message);
-  }
+
+}
+function onLocationError(e){
+  alert(e.message);
 }
 mymap.on("locationerror", onLocationError);
 mymap.on("locationfound", onLocationFound);
