@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  let mymap = L.map("mymap", { center: [48.1, 36.0], zoom: 6 });
+  let mymap = L.map("mymap", { center: [48.2, 36.0], zoom: 6 });
 
   let adresOSM = L.tileLayer(
     "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
